@@ -52,6 +52,19 @@ public class Board {
 		piece.position = position; //peça não está mais em posição nula, mas sim nessa definida.
 	}
 	
+	public Piece removePiece(Position position) {
+		if(!positionExists(position)) {
+			throw new BoardException("Position doesn't exists");
+		}
+		if (piece(position) == null) {
+			return null;
+		}
+		Piece aux = piece(position);
+		aux.position = null;
+		pieces[position.getRow()][position.getColumn()] = null;
+		return aux;
+	}
+	
 	private boolean positionExists(int row, int column) {
 		//método auxiliar ao de baixo criado para testar a existência da posição por linha e coluna.
 		return row >= 0 && row < rows && column >= 0 && column < columns;
