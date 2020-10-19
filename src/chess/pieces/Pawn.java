@@ -40,7 +40,7 @@ public class Pawn extends ChessPiece {
 		else {
 			p.setValues(position.getRow() + 1, position.getColumn());
 			if(getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
-				//testa se existe e se tá vazia.
+				//testa se existe a posição e se tá vazia.
 				mat[p.getRow()][p.getColumn()] = true;
 			}
 			p.setValues(position.getRow() + 2, position.getColumn());
